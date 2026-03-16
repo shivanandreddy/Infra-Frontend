@@ -12,7 +12,7 @@ const Todo = () => {
   const userId = user.id;
   const workgroup = user.workgroup;
 
-  const API_URL = `http://localhost:3000/infra/todos?user=${userId}`;
+  const API_URL = `${import.meta.env.VITE_API_BASE_URL}/infra/todos?user=${userId}`;
 
   // Fetch Todos
   const fetchTodos = async () => {
@@ -56,7 +56,7 @@ const Todo = () => {
   // Delete Todo (Triggered by Tick Icon)
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/infra/todos/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/infra/todos/${id}`);
       setTodos(todos.filter((item) => item._id !== id));
     } catch (error) {
       console.error("Error deleting todo", error);

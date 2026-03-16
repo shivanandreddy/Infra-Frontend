@@ -8,6 +8,7 @@ const Register = () => {
     name: "",
     email: "",
     role: "",
+    workgroup: "",
     password: "",
     confirmPassword: ""
   });
@@ -44,12 +45,13 @@ const Register = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:3000/api/users/register",
+        `${import.meta.env.VITE_API_BASE_URL}/infra/users`,
         {
-          userid: formData.userid,
+          empid: formData.userid,
           name: formData.name,
           email: formData.email,
           role: formData.role,
+          workgroup: formData.workgroup,
           password: formData.password
         },
         {
@@ -66,6 +68,7 @@ const Register = () => {
         name: "",
         email: "",
         role: "",
+        workgroup: "",
         password: "",
         confirmPassword: ""
       });
@@ -162,13 +165,14 @@ const Register = () => {
 
             <select
               name="workgroup"
+              value={formData.workgroup}
+              onChange={handleChange}
               className="input-style bg-white"
+              required
             >
               <option value="">Select Workgroup</option>
-              <option>IT</option>
-              <option>NOC</option>
-              <option>Support</option>
-              <option>Security</option>
+              <option value="IT">IT</option>
+              <option value="Admin">Admin</option>
             </select>
 
           </div>

@@ -21,7 +21,7 @@ const UpdateTicket = () => {
     const fetchTicket = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/infra/tickets/${id}`
+          `${import.meta.env.VITE_API_BASE_URL}/infra/tickets/${id}`
         );
         setTicket(res.data);
       } catch (err) {
@@ -47,7 +47,7 @@ const UpdateTicket = () => {
 
     try {
       await axios.put(
-        `http://localhost:3000/infra/tickets/${id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/infra/tickets/${id}`,
         ticket
       );
 

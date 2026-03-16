@@ -24,7 +24,7 @@ const GetTickets = () => {
 
   const fetchTickets = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/infra/tickets");
+      const res = await axios.get("${import.meta.env.VITE_API_BASE_URL}/infra/tickets");
 
       setTickets(res.data);
       setFilteredTickets(res.data);

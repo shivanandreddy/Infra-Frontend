@@ -16,7 +16,7 @@ const MyApps = () => {
     url: ""
   });
 
-  const API = `http://localhost:3000/infra/users/${empid}/links`;
+  const API = `${import.meta.env.VITE_API_BASE_URL}/infra/users/${empid}/links`;
 
   const fetchApps = async () => {
     try {

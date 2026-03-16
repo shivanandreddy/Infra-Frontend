@@ -14,7 +14,7 @@ const GetUsers = () => {
 
       const token = JSON.parse(localStorage.getItem("token"));
 
-      const response = await axios.get("http://localhost:3000/infra/users", {
+      const response = await axios.get("${import.meta.env.VITE_API_BASE_URL}/infra/users", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
